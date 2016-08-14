@@ -4,8 +4,8 @@
 #include <hamsandwich>
 
 #define PLUGIN "Deathrun: Knives"
-#define VERSION "0.4"
-#define AUTHOR "Mistrick"
+#define VERSION "0.4.1"
+#define AUTHOR "Mistrick Edit L4D2"
 
 #pragma semicolon 1
 
@@ -157,6 +157,7 @@ public plugin_init()
 	RegisterHam(Ham_TakeDamage, "player", "Ham_TakeDamage_Post", true);
 	register_forward(FM_EmitSound, "FM_EmitSound_Pre", false);
 }
+public plugin_cfg() register_dictionary("deathrun_knives.txt");
 public plugin_precache()
 {
 	for(new i; i < sizeof(g_eKnives); i++)
@@ -183,7 +184,7 @@ public client_disconnect(id)
 }
 public Command_Knife(id)
 {
-	new menu = menu_create("\yKnives Menu", "KnivesMenu_Handler");
+	new menu = menu_create("%L^n^n", LANG_PLAYER, "DR_KNIFE_MENU", "KnivesMenu_Handler");
 	for(new i, szText[64]; i < sizeof(g_eKnives); i++)
 	{
 		formatex(szText, charsmax(szText), "%s%s %s", g_iPlayerKnife[id] == i ? "\r": "", g_eKnives[i][NAME], g_eKnives[i][DESCRIPTION]);

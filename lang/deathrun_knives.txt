@@ -1,0 +1,5 @@
+[en]
+DR_KNIFE_MENU = \yKnives Menu
+
+[ru]
+DR_KNIFE_MENU = \yМеню ножей
